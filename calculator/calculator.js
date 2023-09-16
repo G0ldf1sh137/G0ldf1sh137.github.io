@@ -42,8 +42,10 @@ function handleSymbol(symbol) {
       break;
     case '←':
       if (buffer.length === 1) {
+        // 1 digit in buffer resets buffer to 0
         buffer = "0";
       } else {
+        // otherwise remove last digit from buffer
         buffer = buffer.slice(0,buffer.length-1);
       }
       break;
