@@ -1,0 +1,54 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes psychadelic {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+header {
+  background-color: orange;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.mole {
+  height: 334px;
+  width: 334px;
+  background-color: brown;
+  border-radius: 50%;
+}
+
+.doggos {
+  border: 5px solid red;
+  display: inline-block;
+  justify-content: center;
+}
+
+.color {
+  animation: psychadelic 3s linear infinite;
+}
+
+.spin {
+  animation: spin 3s ease-in-out infinite;
+}
