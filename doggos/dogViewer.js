@@ -3,6 +3,7 @@ const breedSel = document.querySelector(".breeds");
 const breedName = document.querySelector(".breed-name");
 const dogImage = document.querySelector(".dog-image");
 const loader = document.querySelector(".loader");
+const dogButton = document.querySelector("button");
 
 const BREEDS_URL = "https://dog.ceo/api/breeds/list/all";
 
@@ -44,6 +45,16 @@ breedSel.addEventListener("change", async (event) => {
   dogImage.classList.remove("show");
   console.log(event.target.value);
   const reqUrl = getDog(event.target.value);
+  await getImage(reqUrl);
+});
+
+dogButton.addEventListener("click", async () => {
+  const currDog = breeds[breedSel.selectedIndex];
+
+  loader.classList.add("show");
+  dogImage.classList.remove("show");
+  console.log(currDog);
+  const reqUrl = getDog(currDog);
   await getImage(reqUrl);
 });
 
