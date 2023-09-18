@@ -10,7 +10,7 @@ const BREEDS_URL = "https://dog.ceo/api/breeds/list/all";
 let breeds = [];
 
 // pass in the name of the dog and return a url request string
-function getDog(dog) {
+function getDogUrl(dog) {
   breedName.innerText = dog;
   return `https://dog.ceo/api/breed/${dog}/images/random`;
 }
@@ -22,16 +22,18 @@ async function init() {
   const randIndex = Math.floor(Math.random() * breeds.length);
   const randDog = breeds[randIndex];
   breedSel.selectedIndex = randIndex;
-  const randDogImgUrl = getDog(randDog);
+  const randDogImgUrl = getDogUrl(randDog);
   await getImage(randDogImgUrl);
 }
 
+// make api call to get list of breeds and set array
 async function getBreeds() {
   const res = await fetch(BREEDS_URL);
   const resJson = await res.json();
   breeds = Object.keys(resJson.message);
 }
 
+// loop breeds, create option elements and append to selector
 function createBreedOptions() {
   breeds.forEach((breed) => {
     const opt = document.createElement("option");
@@ -40,24 +42,27 @@ function createBreedOptions() {
   });
 }
 
+// when selector changes, get new dog based on new value
 breedSel.addEventListener("change", async (event) => {
-  loader.classList.add("show");
-  dogImage.classList.remove("show");
-  console.log(event.target.value);
-  const reqUrl = getDog(event.target.value);
-  await getImage(reqUrl);
+  await getDog(event.target.value);
 });
 
+// when button is clicked, get new dog based on current value
 dogButton.addEventListener("click", async () => {
   const currDog = breeds[breedSel.selectedIndex];
-
-  loader.classList.add("show");
-  dogImage.classList.remove("show");
-  console.log(currDog);
-  const reqUrl = getDog(currDog);
-  await getImage(reqUrl);
+  await getDog(currDog);
 });
 
+// takes string of dog name, hide image, show loader, get new image
+async function getDog(dog) {
+  // console.log(`getDog(${dog})`);
+  loader.classList.add("show");
+  dogImage.classList.remove("show");
+  const reqUrl = getDogUrl(dog);
+  await getImage(reqUrl);
+}
+
+// make api call to get image, load and display new image
 async function getImage(url) {
   const req = await fetch(url);
   const reqJson = await req.json();

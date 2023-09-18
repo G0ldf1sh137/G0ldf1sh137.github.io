@@ -23,24 +23,24 @@ nav {
   /* border: 5px solid red; */
   background-color: orange;
   color: white;
-  display: flex;
-  justify-content: space-between;
   padding: 1rem;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
+  margin: 1rem;
 }
 
 h2 {
   /* border: 1px solid red; */
   color: orangered;
-  font-size: 5rem;
+  font-size: 3rem;
+  margin: 0;
 }
 
 select {
-  height: 4rem;
-  font-size: 2rem;
+  height: 2rem;
+  /* font-size: 2rem; */
   align-self: center;
 }
 
@@ -57,7 +57,7 @@ select {
 
 .loader {
   animation: spin 0.5s infinite linear;
-  font-size: 50px;
+  font-size: 100px;
   display: none;
 }
 
