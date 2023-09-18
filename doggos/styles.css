@@ -40,9 +40,9 @@ header {
 }
 
 .doggos {
+  width: 80%;
+  margin: 0 auto;
   border: 5px solid red;
-  display: inline-block;
-  justify-content: center;
 }
 
 .color {
