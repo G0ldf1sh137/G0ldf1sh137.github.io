@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Dog Viewer</h1>
-      <select name="breeds" id="breeds" class="breeds"></select>
-    </header>
-    <!-- <button class="add-doggo">Add Doggo</button> -->
-    <div class="doggos">
-      <h2>Breed</h2>
-      <img class="dog" alt="Cute Doggo">
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <script src="./doggos.js"></script>
+  <nav>
+    <h1>Dog Viewer</h1>
+    <select name="" id="" class="breeds"></select>
+  </nav>
 
-    <!-- 
-    <img
-      src="https://frontendmasters.github.io/bootcamp/mole-game/mole-hungry.png"
-      style="background-color: brown; border-radius: 50%"
-      class="mole color"
-    />
-    <img
-      src="https://frontendmasters.github.io/bootcamp/mole-game/king-mole-hungry.png"
-      style="background-color: brown; border-radius: 50%"
-      class="mole spin"
-    /> 
-    -->
+  <div class="container">
+    <h2 class="breed-name">Breed</h2>
+    <img class="dog-image" alt="dog image">
+    <span class="loader spin show">🐶</span>
+  </div>
 
-  </body>
+  <script src="./dogViewer.js"></script>
+</body>
 </html>
